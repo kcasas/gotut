@@ -1,0 +1,5 @@
+tap 'homebrew/cask'
+tap 'homebrew/cask-versions'
+
+cask 'visual-studio-code'
+brew 'go@1.13'
