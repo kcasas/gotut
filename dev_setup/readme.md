@@ -11,7 +11,7 @@ script will install these for you:
 - [Visual Studio Code](https://code.visualstudio.com/), recommended GoLang IDE.
 - [Go VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go)
 - [Go Lang v1.13](https://golang.org/doc/go1.13)
-- [dlv], debugger tool
+- [dlv](https://github.com/go-delve/delve), debugger tool
 - [gopls](https://github.com/golang/tools/tree/master/gopls), Go Language Server.
 
 ## Language Server
@@ -24,3 +24,7 @@ Service that provides language development features like auto completion, go to 
 - processing is outsourced to the server
 - ensures development follows the standard
 
+Test development setup by running:
+```bash
+$ go run hello_world.go
+```
