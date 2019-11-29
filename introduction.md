@@ -26,4 +26,6 @@ Based on creators experience with Java, Python, and C/C++
 
 ## Cons
 - Simplicity means less abstractions means more development time.
-- Young language library support is not as huge as other languages.
+- Young language
+  - library support is not as huge as other languages.
+  - tooling needs maturity e.g. GOPATH and GO modules
