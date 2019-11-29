@@ -11,6 +11,12 @@ https://tour.golang.org/basics/11
 - `""` (empty string) for strings
 - `nil` for other data types
 
+---
+#### Coding exercise
+- Create an app that will print out these details about you `firstname`, `lastname`, `age`, `gender`, `birthdate`, `seniorCitizen`, `deathCount`.
+- Don't just print them out, declare variables and constants as needed.
+---
+
 ## Pointers
 
 Data type that holds the address of another variable.
@@ -24,16 +30,20 @@ play: https://tour.golang.org/moretypes/1
 
 ## Arrays
 
-Arrays stores a fixed length list of values with the same type
+Arrays stores a fixed length list of values with the same type.
 
 syntax:
 - declaration
-    ```js
+    ```go
     var {name} [{length}]{type}
+    ```
+- nested
+    ```go
+        var {name} [{length}][{length}]{type}
     ```
 - initialization
     ```go
-    {name} := [{length}]{value, value1, ...}
+    {name} := [{length}]{type}{ {value, value1, ...} }
     ```
 - set/get element
     ```go
@@ -42,9 +52,8 @@ syntax:
 
 ### Slices
 
-- Slices are references to arrays.
-- Syntax for arrays applies to slices w/o the length. 
-- When declared/initialized it actually creates an underlying array then builds the reference to that array.
+- Slices are references to an underlying array.
+- Syntax for arrays minus the length. 
 
 syntax:
 - slice another array/slice. both are optional w/ defaults low=0 and high={array_length}.
@@ -53,16 +62,27 @@ syntax:
     ```
 - append element
     ```go
-    {name} = append({name}, value, value1, ...)
+    {name} = append({name}, {value}, {value1})
     ```
 - delete element/s at index n to m
     ```go
-    {name} = append({name}[:n], {name}[m+1:]...)
+    {name} = append({name}[:{n}], {name}[{m+1}:]...)
     ```
 - unshift element/s
     ```go
-    {name} = append([]{type}{value, value1, ...}, {name}...)
+    {name} = append([]{type}{ {value}, {value1} }, {name}...)
     ```
+- length and capacity
+    ```go
+        len({name})
+        cap({name})
+    ```
+- make syntax: define capacity to avoid resizing of underlying array 
+    ```go
+        {name} = make([]{type}, {length}, {capacity})
+    ```
+
+play: https://play.golang.org/p/8DeztkO-w_7
 
 ## Maps
 
@@ -94,16 +114,18 @@ syntax:
     _, ok = {name}[{key}]
     ```
 
+play: https://play.golang.org/p/l7zacVQwA3A
+
 ## Structs
 
-A `struct` is a **user defined type** that holds a collection of fields.
+A `struct` is a **user defined type** that holds a collection of fields w/ different data types.
 
 syntax:
-- defining a struct
+- defining a struct type
     ```go
     type {struct_name} struct {
         {field_name} {type}
-        {field_name1} {type}
+        {field_name1} {type1}
         ...
     }
     ```
@@ -127,7 +149,18 @@ syntax:
     {name}.{field_name}
     ```
 
-play: https://play.golang.org/p/sHntVoIUUzY
+play: https://play.golang.org/p/kDShFRDkxcM
+
+---
+#### Coding exercise
+- Create a struct type that will store your profile details w/ fields like name, age, and skills
+- name should also be a struct w/ first, middle, and last name.
+- skills should be stored as a map w/ key as skill and then value as an array of flavors of that skill.
+  - example: javascript [react, webpack]
+
+[Answer](https://play.golang.org/p/bAFvZM6GHNS)
+
+---
 
 
 ## Type conversion
@@ -139,10 +172,17 @@ play: https://play.golang.org/p/sHntVoIUUzY
 
 syntax:
 ```go
-{type}({value|{name}})
+{type}({ value || name })
 ```
 
-play: https://play.golang.org/p/bygQ2Q-4Q7k
+---
+#### Coding exercise
+- Calculate the area of circle with radius 7
+
+[Answer](https://play.golang.org/p/bygQ2Q-4Q7k)
+
+---
+
 
 ## Type aliasing
 
@@ -153,6 +193,9 @@ syntax:
 type {alias} {type}
 ```
 
-play: fix bug
-https://play.golang.org/p/q0rox7xopdk
+---
+#### Coding exercise
+- Fix bug: https://play.golang.org/p/Lj64Xob-Gbw
+---
+
 

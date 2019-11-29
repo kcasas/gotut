@@ -3,11 +3,14 @@
 ## Looping
 
 - The `for` loop is Go's only looping construct.
-- `for` loop has three components separated by semicolons
-    - init statement: executed before the first iteration
-    - condition expression: evaluated before every iteration
-    - post statement: executed at the end of every iteration
+- loop syntax `for {initializer}; {test}; {incrementer}`
+    - initializer: executed before the first iteration
+    - test: evaluated before every iteration
+    - incrementer: executed at the end of every iteration
 - every component is optional
+- `break` and `continue` works the same way as any other language
+- loop over collections: `arrays`, `slices`, `maps`, and `strings`
+  - `for key, value := range collection`
 
 syntax:
 - normal
@@ -43,7 +46,7 @@ syntax:
 syntax:
 ```go
 age := 20
-if age < 13 {
+if age < 13  {
     fmt.Println("child")
 } else if age < 20 {
     fmt.Println("teenager")
@@ -56,11 +59,31 @@ if age < 13 {
 
 `switch` statements in Go are just a shorter way to write `if-else` statements.
 
+- `value` to compare with each `case` is optional. Default value is `true`, so `cases` should evaluate to a `boolean` value.
 - `break` statement is not needed at the end of the case.
 - `case` need not be constants. Expressions and function calls are evaluated.
-- `value` to compare with each `case` is optional. If not provided, `cases` should evaluate to a `boolean` value.
+- `case` can have multiple values to test on.
 
 syntax:
+- w/ value to compare
+    ```go
+    position := 1
+    switch position {
+        case 1:
+            fmt.Prinln("Hard Carry")
+        case 2:
+            fmt.Println("Mid")
+        case 3:
+            fmt.Println("Offlane")
+        case 4:
+            fmt.Println("Roamer Support")
+        case 5, 6: // multiple test values
+            fmt.Println("Hard Support")
+        default:
+            fmt.Println("Spectator")
+    }
+    ```
+
 - w/o value to compare
 	```go
     age := 20
@@ -78,24 +101,19 @@ syntax:
         }
     }
     ```
-- w/ value to compare
-    ```go
-    position := 1
-    switch position {
-        case 1:
-            fmt.Prinln("Hard Carry")
-        case 2:
-            fmt.Println("Mid")
-        case 3:
-            fmt.Println("Offlane")
-        case 4:
-            fmt.Println("Roamer Support")
-        case 5:
-            fmt.Println("Hard Support")
-        default:
-            fmt.Println("Spectator")
-    }
-    ```
+
+---
+#### Coding exercise
+- loop from `0` to `40`
+  - print `Foo` if `value` is divisible by `3`
+  - print `Bar` if `value` is divisible by `5`
+  - otherwise, print the `value`
+  - print `\n` after each `value`
+  [Answer](https://play.golang.org/p/cWo3k25ntvf)
+- loop through the list `"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"`
+  - print `value` and `key + 1` 
+  [Answer](https://play.golang.org/p/tqkxaWcIkY4)
+---
 
 ## Defer
 

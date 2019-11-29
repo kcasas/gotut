@@ -16,7 +16,7 @@ Go Lang variables are statically typed. Once a type is assigned to a variable it
 	```go
 	var {name} = {value}
 	```
-- **short hand**
+- **short hand w/ type assertion**
     ```go
     {name} := {value}
     ```
